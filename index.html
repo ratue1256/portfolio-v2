@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>EZIO | Kinetic Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="/config.js"></script>
+</head>
+
+<body>
+    <!-- Hidden SVG for global liquid filter -->
+    <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg"
+        version="1.1">
+        <defs>
+            <filter id="liquid-glass">
+                <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"
+                    result="displaced" />
+                <feMerge>
+                    <feMergeNode in="displaced" />
+                </feMerge>
+            </filter>
+            <filter id="morphing-hover">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015 0.05" numOctaves="3" result="warp" />
+                <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp"
+                    result="displaced" />
+                <feComposite in="SourceGraphic" in2="displaced" operator="over" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
